@@ -17,14 +17,6 @@
       </a>
     </span>
   </div>
-  <div class="container">
-    <% if current_user %>
-      <%= form_for [@tweet, @comment] do |f| %>
-       <%= f.text_area :text, placeholder: 'コメントする' %>
-        <%= f.submit 'SENT' %>
-      <% end %>
-    <% end %>
-  </div>
     <div class="comments">
       <h4>＜コメント一覧＞</h4>
       <% if @comments %>
@@ -36,4 +28,12 @@
         <% end %>
       <% end %>
     </div>
+    <div class="container">
+    <% if current_user %>
+      <%= form_for [@tweet, @comment] do |f| %>
+       <%= f.text_area :text, placeholder: 'コメントする' %>
+        <%= f.submit 'SENT' %>
+      <% end %>
+    <% end %>
+  </div>
 </div>
