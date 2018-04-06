@@ -19,21 +19,21 @@
   </div>
   <div class="container">
     <% if current_user %>
-      <%= form_tag("/tweets/#{@tweet.id}/comments", method: :post) do %>
-        <textarea cols="30" name="text" placeholder="コメントする" rows="2"></textarea>
-        <input type="submit" value="SENT">
+      <%= form_for [@tweet, @comment] do |f| %>
+       <%= f.text_area :text, placeholder: 'コメントする' %>
+        <%= f.submit 'SENT' %>
       <% end %>
     <% end %>
+  </div>
     <div class="comments">
       <h4>＜コメント一覧＞</h4>
       <% if @comments %>
         <% @comments.each do |comment| %>
           <p>
-            <storng><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+            <storng><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>: </storng>
             <%= comment.text %>
           </p>
         <% end %>
       <% end %>
     </div>
-  </div>
 </div>
