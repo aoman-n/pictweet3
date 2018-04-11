@@ -23,6 +23,11 @@
   </head>
 
   <body>
+    <div class="notification">
+      <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "#{key}") %>
+      <% end %>
+    </div>
     <header class="header">
       <div class="header__bar row">
         <h1 class="grid-6"><a href="/">PicTweet</a></h1>
